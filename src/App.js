@@ -15,6 +15,8 @@ function App() {
       </header>
 
       <Slider />
+
+      <button></button>
     </>
   );
 }
