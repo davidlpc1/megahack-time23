@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from "react-elastic-carousel";
+import { Link } from 'react-router-dom';
 import Slider from './components/Slider';
 
 
@@ -8,7 +9,9 @@ function App() {
   return (
     <>
       <header className="bg-green-600 p-8 flex justify-center">
-        <img src={Logo} alt="Orama" />
+        <Link to="/">
+          <img src={Logo} alt="Orama" />
+        </Link>
       </header>
 
       <Slider />

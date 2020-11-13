@@ -1,6 +1,11 @@
 import React ,{ useState } from 'react';
 import Carousel from "react-elastic-carousel";
 import fundos from '../../assets/img/fundos.jpeg';
+import destaques from '../../assets/img/destaques.jpeg';
+import fundos_disponiveis from '../../assets/img/fundos_disponiveis.jpeg';
+import legenda from '../../assets/img/legenda.jpeg';
+import top_fundos from '../../assets/img/top_fundos.jpeg';
+import close from '../../assets/img/close.svg'
 
 export default function Slider(){
     const [ sliderClassName, setSliderClassName ] = useState("flex justify-center align-center h-64 w-full bg-blue-100 text-white mx-2 text-xl")
@@ -11,6 +16,40 @@ export default function Slider(){
         { width: 1700, itemsToShow: 4 },
     ])
 
+    function openDiv({target}) {
+        setItemsToShow([
+            { width: 1, itemsToShow: 1,itemsToScroll:0 },
+            { width: 768, itemsToShow: 1 ,itemsToScroll:0},
+            { width: 1250, itemsToShow: 1,itemsToScroll:0 },
+            { width: 1700, itemsToShow: 1 ,itemsToScroll:0},
+        ])
+        setSliderClassName(`${sliderClassName} hidden`);
+        if(target.alt !== 'Close' && target.childElementCount !== 2 ){
+            target.nextElementSibling.classList.remove('hidden')
+            target.parentNode.style.display = 'flex';
+            target.parentNode.style.height = '400px';
+        }else if(!target.alt){
+            target.childNodes[1].classList.remove('hidden')
+            target.style.display = 'flex';
+            target.style.height = '400px';
+        }
+        else if(target.alt = 'Close'){
+            closeDiv({target})
+        }
+    }
+
+    function closeDiv({target}){
+        setItemsToShow([
+            { width: 1, itemsToShow: 1,itemsToScroll:1 },
+            { width: 768, itemsToShow: 2,itemsToScroll:1 },
+            { width: 1250, itemsToShow: 3 ,itemsToScroll:1 },
+            { width: 1700, itemsToShow: 4 ,itemsToScroll:1},
+        ])
+        setSliderClassName("flex justify-center align-center h-64 w-full bg-blue-100 text-white mx-2 text-xl");
+        target.classList.add('hidden');
+        target.parentNode.style.height = '16rem';
+    }
+
     return (
       <>  
         <h1 className="text-center p-8 text-3xl">Tutorial</h1>
@@ -18,45 +57,52 @@ export default function Slider(){
           <Carousel breakPoints={itemsToShow } enableAutoPlay={sliderClassName.indexOf('hidden', 0) === -1} autoPlaySpeed={7000}>
             <div 
                 className={sliderClassName}
-                onClick={event => {
-                    setItemsToShow([
-                        { width: 1, itemsToShow: 1,itemsToScroll:0 },
-                        { width: 768, itemsToShow: 1 ,itemsToScroll:0},
-                        { width: 1250, itemsToShow: 1,itemsToScroll:0 },
-                        { width: 1700, itemsToShow: 1 ,itemsToScroll:0},
-                    ])
-                    setSliderClassName(`${sliderClassName} hidden`);
-                    if(event.target.alt === 'Orama'){
-                        event.target.parentNode.style.display = 'flex';
-                        event.target.parentNode.style.height = '400px';
-                    }else{
-                        event.target.style.display = 'flex';
-                    }
-
-                }}    
+                onClick={openDiv}    
             >
-              <img src={fundos} alt="Orama" />
+              <img src={fundos} alt="fundos" />
+              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
+                onClick={closeDiv}
+              />
             </div>
-            <div className={sliderClassName}>
-                <img src={fundos} alt="Orama" />
+
+            <div 
+                className={sliderClassName}
+                onClick={openDiv}    
+            >
+              <img src={top_fundos} alt="Top fundos" />
+              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
+                onClick={closeDiv}
+              />
             </div>
-            <div className={sliderClassName}>
-                <img src={fundos} alt="Orama" />
+
+            <div 
+                className={sliderClassName}
+                onClick={openDiv}    
+            >
+              <img src={fundos_disponiveis} alt="Fundos disponíveis" />
+              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
+                onClick={closeDiv}
+              />
             </div>
-            <div className={sliderClassName}>
-                <img src={fundos} alt="Orama" />
+
+            <div 
+                className={sliderClassName}
+                onClick={openDiv}    
+            >
+              <img src={destaques} alt="Destaques" />
+              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
+                onClick={closeDiv}
+              />
             </div>
-            <div className={sliderClassName}>
-                <img src={fundos} alt="Orama" />
-            </div>
-            <div className={sliderClassName}>
-                <img src={fundos} alt="Orama" />
-            </div>
-            <div className={sliderClassName}>
-                <img src={fundos} alt="Orama" />
-            </div>
-            <div className={sliderClassName}>
-                <img src={fundos} alt="Orama" />
+
+            <div 
+                className={sliderClassName}
+                onClick={openDiv}    
+            >
+              <img src={legenda} alt="Legenda" />
+              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
+                onClick={closeDiv}
+              />
             </div>
           </Carousel>
         </div>
