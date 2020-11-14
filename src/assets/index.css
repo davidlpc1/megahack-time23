@@ -16,7 +16,17 @@
 
 #root.popup{
     background-color: rgba(0, 0, 0, .3);
-    height:100vh;
+    min-height:760px;
+    overflow: hidden;
+    max-height: 100vh;
+}
+
+#root.popup aside{
+    background-color:#639c3199 !important;
+}
+
+#root.popup header.flex{
+    background-color:#639c3199 !important;
 }
 
 .rec.rec-arrow {
