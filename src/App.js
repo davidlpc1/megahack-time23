@@ -18,7 +18,7 @@ function App() {
         <>
           <Aside />
           <div className="ml-40">
-            Acabou o tutorial e a simulação
+
           </div>
         </>
       )} 
