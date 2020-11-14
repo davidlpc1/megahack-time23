@@ -53,3 +53,8 @@
 button.rec-dot_active{
     background-color:#8ec260!important;
 }
+
+.popup_interface{
+    top:100px;
+    left:200px;
+}
