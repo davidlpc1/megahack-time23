@@ -39,7 +39,7 @@ export default function Aside(){
         },
     ]
     return(
-        <aside className="absolute top-0 left-0 .min-h-screen w-40 text-center text-white">
+        <aside className="absolute top-0 left-0 .min-h-screen w-40 text-center text-white bg-logo">
             {buttons.map(({ img, alt}) => {
                 return (
                     <div 

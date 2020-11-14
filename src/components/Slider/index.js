@@ -56,7 +56,7 @@ export default function Slider({className}){
 
     return (
       <div className={className}>  
-        <h1 className="text-center p-8 text-3xl">Tutorial</h1>
+        <h1 className="text-center p-8 text-4xl text-logo">Entenda os termos da economia</h1>
         <div className="App outline-none">
           <Carousel className="w-full" breakPoints={itemsToShow } enableAutoPlay={sliderClassName.indexOf('hidden', 0) === -1} autoPlaySpeed={7000}>
 

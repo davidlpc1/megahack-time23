@@ -1,22 +1,22 @@
-header.flex{
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+}
+
+.bg-logo{
     background:#639c31;
 }
 
-aside{
-    background-color:#639c31 !important;
+.text-logo{
+    color:#639c31;
 }
 
 #root.popup{
     background-color: rgba(0, 0, 0, .3);
     height:100vh;
-}
-
-#root.popup aside{
-    background-color:#639c3199 !important;
-}
-
-#root.popup header.flex{
-    background-color:#639c3199 !important;
 }
 
 .rec.rec-arrow {

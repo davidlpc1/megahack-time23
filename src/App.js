@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="relative">
-      <header className="bg-green-500 p-8 flex justify-center">
+      <header className="bg-logo p-8 flex justify-center shadow-2xl">
         <Link to="/">
           <img src={Logo} alt="Orama" />
         </Link>
@@ -26,14 +26,14 @@ function App() {
           <Slider className="bg-pink-100 pb-8" />
 
           <button 
-            className="rounded bg-green-500 p-3 flex justify-center mx-auto my-8 text-white
+            className="rounded bg-logo p-3 flex justify-center mx-auto my-8 text-white
             hover:bg-green-200 hover:text-green-600 outline-none transition duration-500 ease-in-out"
             onClick={setSkipTutorial}
           >
             Pular Tutorial
           </button>
         </>
-      )}
+      )} 
       
 
       {Boolean(localStorage.getItem('skipTutorialOrama')) && !Boolean(localStorage.getItem('skipSimuladorOrama')) && (
@@ -46,7 +46,7 @@ function App() {
                 target.parentNode.parentNode.parentNode.classList.remove('popup')
               }} 
               src={close} alt="Close" />
-            <p className="text-lg">Inicie a simulação com o botão de baixo</p>
+            <p className="text-sm">Inicie a simulação</p>
             <img className="h-4  cursor-pointer mx-auto my-2" 
               onClick={( {target} ) => {
                 target.parentNode.childNodes[1].innerHTML = 'A Home e´o início da Orama'
