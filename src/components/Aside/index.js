@@ -56,8 +56,8 @@ export default function Aside(){
                     <button
                         className="border-dotted border-b-2 py-6 border-white-100 outline-none relative"
                         key={`img_${img}_${alt}`}
-                        onClick={({buttons, target}) => {
-                            if(buttons === 2){ //ALTERAR
+                        onMouseDown={({buttons, target}) => {
+                            if(buttons === 2){ 
                                 if(target.className.indexOf('border-dotted') !== -1){
                                     let text = target.childNodes[0].childNodes[1].innerHTML
                                     text = text === description ? alt : description;
