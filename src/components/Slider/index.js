@@ -16,6 +16,29 @@ export default function Slider({className}){
         { width: 1700, itemsToShow: 1 },
     ])
 
+    const imgs = [
+      {
+        img:fundos,
+        alt:'Fundos',
+      },
+      {
+          img:destaques,
+          alt:'Destaques',
+      },
+      {
+          img:fundos_disponiveis,
+          alt:'Fundos disponíveis',
+      },
+      {
+          img:legenda,
+          alt:'Legenda',
+      },
+      {
+          img:top_fundos,
+          alt:'Top Fundos',
+      },
+    ]
+
     function openDiv({target}) {
         setItemsToShow([
             { width: 1, itemsToShow: 1,itemsToScroll:0 },
@@ -60,56 +83,20 @@ export default function Slider({className}){
         <div className="App outline-none">
           <Carousel className="w-full" breakPoints={itemsToShow } enableAutoPlay={sliderClassName.indexOf('hidden', 0) === -1} autoPlaySpeed={7000}>
 
-            <div 
+          {imgs.map((img,index) => {
+            return (
+              <div 
                 className={sliderClassName}
-                onClick={openDiv}    
-            >
-              <img src={fundos} className="h-full outline-none" alt="fundos" />
-              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
-                onClick={closeDiv}
-              />
-            </div>
-
-            <div 
-                className={sliderClassName}
-                onClick={openDiv}    
-            >
-              <img className="h-full outline-none" src={top_fundos} alt="Top fundos" />
-              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
-                onClick={closeDiv}
-              />
-            </div>
-
-            <div 
-                className={sliderClassName}
-                onClick={openDiv}    
-            >
-              <img className="h-full outline-none" src={fundos_disponiveis} alt="Fundos disponíveis" />
-              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
-                onClick={closeDiv}
-              />
-            </div>
-
-            <div 
-                className={sliderClassName}
-                onClick={openDiv}    
-            >
-              <img  className="h-full outline-none" src={destaques} alt="Destaques" />
-              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
-                onClick={closeDiv}
-              />
-            </div>
-
-            <div 
-                className={sliderClassName}
-                onClick={openDiv}    
-            >
-              <img className="h-full outline-none" src={legenda} alt="Legenda" />
-              <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
-                onClick={closeDiv}
-              />
-            </div>
-
+                onClick={openDiv}   
+                key={`${img.alt}_${index}_${img.img}` }
+              >
+                <img src={img.img} className="h-full outline-none" alt={img.alt} />
+                <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
+                  onClick={closeDiv}
+                />
+              </div>
+            )
+          })}
           </Carousel>
         </div>
       </div>
