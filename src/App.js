@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from './components/Slider';
 import Aside from './components/Aside'
-import './assets/index.css'
+import './assets/index.css';
+import close from './assets/img/close.svg';
+import next from './assets/img/next.svg';
 
 function App() {
   const Logo = "https://minhaconta.orama.com.br/static/img/logos/orama.svg";
@@ -34,9 +36,24 @@ function App() {
       )}
       
 
-      {Boolean(localStorage.getItem('skipTutorialOrama')) && (
+      {Boolean(localStorage.getItem('skipTutorialOrama')) && !Boolean(localStorage.getItem('skipSimuladorOrama')) && (
         <>
           <Aside />
+          <div className="w-40 h-40 bg-gray-400 p-2 mx-64 my-4 text-justify text-black">
+            <img className="h-4  cursor-pointer" 
+              onClick={( {target} ) => {
+                target.parentNode.style.display = 'none';
+                target.parentNode.parentNode.parentNode.classList.remove('popup')
+              }} 
+              src={close} alt="Close" />
+            <p className="text-lg">Inicie a simulação com o botão de baixo</p>
+            <img className="h-4  cursor-pointer mx-auto my-2" 
+              onClick={( {target} ) => {
+                target.parentNode.childNodes[1].innerHTML = 'A Home e´o início da Orama'
+                target.parentNode.parentNode.parentNode.classList.add('popup')
+              }} 
+              src={next} alt="Next" />
+          </div>
         </>
       )}
 
