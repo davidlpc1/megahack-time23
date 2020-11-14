@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Header from './components/Header';
 import Slider from './components/Slider';
-import Aside from './components/Aside'
+import Aside from './components/Aside';
 import './assets/index.css';
 import close from './assets/img/close.svg';
 import next from './assets/img/next.svg';
 
 function App() {
-  const Logo = "https://minhaconta.orama.com.br/static/img/logos/orama.svg";
   const [AtualButton, setAtualButton] = useState(0);
   const descriptionButtons = [
     'A Home é a área inicial da aplicação',
@@ -18,6 +17,10 @@ function App() {
     'Aprenda mais sobre finanças',
     'Entre em contato com o nosso time'
   ]
+
+  function setSkipTutorial(){
+    localStorage.setItem('skipTutorialOrama',String(true));
+  }
 
   function simulation( { target }  ){
     const { parentNode } = target;
@@ -43,17 +46,9 @@ function App() {
     target.parentNode.parentNode.parentNode.classList.remove('popup')
   }
 
-  function setSkipTutorial(){
-    localStorage.setItem('skipTutorialOrama',String(true));
-  }
-
   return (
     <div className="relative">
-      <header className="bg-logo p-8 flex justify-center shadow-2xl">
-        <Link to="/">
-          <img src={Logo} alt="Orama" />
-        </Link>
-      </header>
+      <Header />
 
       {(!Boolean(localStorage.getItem('skipTutorialOrama'))) && (
         <>
