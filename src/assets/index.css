@@ -1,3 +1,11 @@
+header.flex{
+    background:#639c31;
+}
+
+aside{
+    background-color:#639c31 !important;
+}
+
 
 .rec.rec-arrow {
     border-radius: 50%;

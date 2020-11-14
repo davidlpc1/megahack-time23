@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from './components/Slider';
-
+import Aside from './components/Aside'
+import './assets/index.css'
 
 function App() {
   const Logo = "https://minhaconta.orama.com.br/static/img/logos/orama.svg";
@@ -11,7 +12,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="relative">
       <header className="bg-green-500 p-8 flex justify-center">
         <Link to="/">
           <img src={Logo} alt="Orama" />
@@ -31,14 +32,15 @@ function App() {
           </button>
         </>
       )}
+      
 
       {Boolean(localStorage.getItem('skipTutorialOrama')) && (
         <>
-
+          <Aside />
         </>
       )}
 
-    </>
+    </div>
   );
 }
 

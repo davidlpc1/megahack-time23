@@ -6,7 +6,6 @@ import fundos_disponiveis from '../../assets/img/fundos_disponiveis.jpeg';
 import legenda from '../../assets/img/legenda.jpeg';
 import top_fundos from '../../assets/img/top_fundos.jpeg';
 import close from '../../assets/img/close.svg';
-import './index.css'
 
 export default function Slider({className}){
     const [ sliderClassName, setSliderClassName ] = useState("flex justify-center align-center h-64 w-full bg-pink-100 text-white mx-2 text-xl")
@@ -58,13 +57,14 @@ export default function Slider({className}){
     return (
       <div className={className}>  
         <h1 className="text-center p-8 text-3xl">Tutorial</h1>
-        <div className="App">
+        <div className="App outline-none">
           <Carousel className="w-full" breakPoints={itemsToShow } enableAutoPlay={sliderClassName.indexOf('hidden', 0) === -1} autoPlaySpeed={7000}>
+
             <div 
                 className={sliderClassName}
                 onClick={openDiv}    
             >
-              <img src={fundos} alt="fundos" />
+              <img src={fundos} className="h-full outline-none" alt="fundos" />
               <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
                 onClick={closeDiv}
               />
@@ -74,7 +74,7 @@ export default function Slider({className}){
                 className={sliderClassName}
                 onClick={openDiv}    
             >
-              <img src={top_fundos} alt="Top fundos" />
+              <img className="h-full outline-none" src={top_fundos} alt="Top fundos" />
               <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
                 onClick={closeDiv}
               />
@@ -84,7 +84,7 @@ export default function Slider({className}){
                 className={sliderClassName}
                 onClick={openDiv}    
             >
-              <img src={fundos_disponiveis} alt="Fundos disponíveis" />
+              <img className="h-full outline-none" src={fundos_disponiveis} alt="Fundos disponíveis" />
               <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
                 onClick={closeDiv}
               />
@@ -94,7 +94,7 @@ export default function Slider({className}){
                 className={sliderClassName}
                 onClick={openDiv}    
             >
-              <img src={destaques} alt="Destaques" />
+              <img  className="h-full outline-none" src={destaques} alt="Destaques" />
               <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
                 onClick={closeDiv}
               />
@@ -104,7 +104,7 @@ export default function Slider({className}){
                 className={sliderClassName}
                 onClick={openDiv}    
             >
-              <img src={legenda} alt="Legenda" />
+              <img className="h-full outline-none" src={legenda} alt="Legenda" />
               <img className="h-2 sm:h-4 md:h-4 lg:h-8 xl:h-10 hidden m-4 cursor-pointer" src={close} alt="Close" 
                 onClick={closeDiv}
               />
