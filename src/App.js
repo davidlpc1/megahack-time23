@@ -85,6 +85,16 @@ function App() {
         </>
       )} 
 
+      
+      {Boolean(localStorage.getItem('skipTutorialOrama')) && Boolean(localStorage.getItem('skipSimuladorOrama')) && (
+        <>
+          <Aside />
+          <div className="ml-40">
+            Acabou o tutorial e a simulação
+          </div>
+        </>
+      )} 
+
     </div>
   );
 }
