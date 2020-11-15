@@ -21,10 +21,11 @@ export default function Simulation(){
       const { parentNode } = target;
       const lenButtons = parentNode.previousElementSibling.childElementCount
       parentNode.childNodes[1].innerHTML = descriptionButtons[AtualButton]
-      console.log(AtualButton >= lenButtons)
-      if(AtualButton > 0 && AtualButton < lenButtons){
+      const HavebuttonsBeforeTarget = AtualButton > 0 && AtualButton < lenButtons;
+      const CanIFinishSimulation = AtualButton >= lenButtons;
+      if(HavebuttonsBeforeTarget){
         parentNode.previousElementSibling.childNodes[AtualButton - 1].style.backgroundColor = '#639c3199';
-      }else if(AtualButton >= lenButtons){
+      }else if(CanIFinishSimulation){
         parentNode.childNodes[1].innerHTML = 'Acabou a simulação';
         setAtualButton(0);
         finishSimulation({target});
