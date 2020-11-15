@@ -50,7 +50,7 @@ export default function Aside(){
     ];
 
     return(
-        <aside className=" flex flex-col absolute top-0 left-0 .min-h-screen w-40 text-center text-white bg-logo">
+        <aside className=" flex flex-col absolute top-0 left-0 .min-h-screen w-20 sm:w-20 md:32 lg:w-40 xl:w-42 text-center text-white bg-logo">
             {buttons.map(({ img, alt,description}) => {
                 return (
                     <button
