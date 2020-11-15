@@ -6,6 +6,10 @@
     outline: none;
 }
 
+body,html{
+    height:100%;
+}
+
 .bg-logo{
     background:#639c31;
 }
@@ -16,9 +20,9 @@
 
 #root.popup{
     background-color: rgba(0, 0, 0, .3);
-    min-height:760px;
+    min-height:926px;
     overflow: hidden;
-    max-height: 100vh;
+    max-height: calc(100vh + 100%);
 }
 
 #root.popup aside{

@@ -7,9 +7,9 @@ export default function Fundo({ name,minPrice,maxPrice ,atualization,color}){
                 <div className="flex-1 min-w-0">
                 <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate"
                     onMouseDown={({ buttons ,target}) => {
-                    if(buttons === 2){
-                        target.parentNode.parentNode.nextElementSibling.classList.remove('hidden')
-                    }
+                        if(buttons === 2){
+                            target.parentNode.parentNode.nextElementSibling.classList.remove('hidden')
+                        }
                     }}
                 >
                     {name}
@@ -37,7 +37,7 @@ export default function Fundo({ name,minPrice,maxPrice ,atualization,color}){
 
                 <span className="hidden sm:block ml-3 shadow-sm rounded-md">
                     <button type="button" className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
-                    onClick={( {target}) => {
+                    onClick={({target}) => {
                         const isSvg = target.childElementCount === 1;
                         const isButton = target.type === 'button';
                         if(!isButton && isSvg){
